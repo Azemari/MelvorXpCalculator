@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MelvorXpCalculator.Melvor
+namespace MelvorXpCalculator.Utilities
 {
     public static class Xp
     {

@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Collections.Generic;
 using MelvorXpCalculator.Models;
 using Microsoft.AspNetCore.Mvc;
 using MelvorXpCalculator.Utilities;

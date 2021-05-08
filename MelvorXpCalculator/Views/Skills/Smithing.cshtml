@@ -1,8 +1,9 @@
 ﻿@model HomeViewModel
 @{ ViewData["Title"] = "Smithing"; }
 
-
 @Html.HiddenFor(m => m.Modifiers.TotalXpModifier)
+@Html.HiddenFor(m => m.Skill.Xp, new { id = "skillXp" })
+@Html.HiddenFor(m => m.Skill.Xp, new { id = "xpDifference" })
 
 <div class="container">
     <div class="row">
@@ -17,7 +18,7 @@
                     <img class="skill-icon mr-2" src="~/Images/Smithing_Gloves.svg" />
                     Smithing Gloves
                 </label>
-                <input type="checkbox" id="SmithingGloves">
+                <input type="checkbox" id="SmithingGloves" value="50" onchange="UpdateGlobalModifier(this)">
                 <br />
                 <span>+50% Smithing XP when worn, until depleted.</span>
             </div>
@@ -25,22 +26,21 @@
         <div class="col-4">
             <h3>Level</h3>
             @Html.LabelFor(m => m.Skill.Level)
-            @Html.TextBoxFor(m => m.Skill.Level, new { @class = "form-control", type = "number", onChange = "updateXp(this)" })
+            @Html.TextBoxFor(m => m.Skill.Level, new { @class = "form-control", type = "number", onChange = "updateXp(this)", Id="level" })
             @Html.LabelFor(m => m.Skill.Xp)
-            @Html.TextBoxFor(m => m.Skill.Xp, new { @class = "form-control", type = "number", onChange = "updateLevel(this)" })
+            @Html.TextBoxFor(m => m.Skill.Xp, new { @class = "form-control", type = "number", onChange = "updateLevel(this)", Id="xp" })
         </div>
         <div class="col-4">
             <h3>Target</h3>
             <label>Level</label>
-            <input type="number" class="form-control" />
+            <input id="targetLevel" type="number" class="form-control" onchange="calculateXp(this)" />
             <label>Xp</label>
-            <input type="number" class="form-control" />
+            <input id="targetXp" type="number" class="form-control" min="0" onchange="calculateDifference(this)" />
         </div>
     </div>
     <p id="modifierDisplay">@Model.Modifiers.TotalXpModifier% Skill XP Modifier</p>
-
     @{ float xpDifference = 550000;}
-    <p>xp to earn: @xpDifference</p>
+
     <div class="panel-tabs">
         <ul>
             <li id="smithing-bars">
