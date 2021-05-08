@@ -1,0 +1,193 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  font-size: 14px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+/*================================================================*/
+.skill-container {
+    text-align: center;
+    margin-bottom: 25px;
+    background-color: #fafafa;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px 6px #f5f5f5; 
+}
+    .skill-container a{
+        text-decoration: none;
+        color: black;
+    }
+
+    .skill-container a:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+.skill-image {
+    width: 100%;
+}
+/*================================================================*/
+.skill-icon {
+    width: 35px;
+    padding-bottom: 5px;
+}
+
+/*================================================================*/
+
+.panel-tabs{
+}
+    .panel-tabs ul {
+        display: inline-flex;
+        list-style: none;
+        justify-content: space-between;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+        .panel-tabs ul li {
+            background-color: #fafafa;
+            padding: 5px 15px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border-radius: 10px 10px 0 0;
+        }
+
+.panel-tabs-image{
+    width: 25px;
+}
+
+.panel-tabs .active {
+    background-color: blue;
+    color: white;
+}
+
+/*================================================================*/
+.item-container {
+    background-color: #fafafa;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.item-image{
+    width: 50px;
+}
+
+.item-header{
+    text-align: center;
+}
+
+.item-container ul{
+    display: inline-flex;
+    list-style: none;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+}
+
+.item-container ul li {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.item-baseitem-image {
+    width: 20px;
+}
+
+/*================================================================*/
+
+.modifiers-image{
+    width: 24px;
+}
+
+.modifiers p{
+    padding-top: 7px;
+    margin-bottom: 0;
+    margin-left: 10px;
+}
+
+.modifiers-checkbox{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.modifiers-span{
+    margin-top: 5px;
+    margin-left: 5px;
+    padding: 3px;
+}
+
+.good {
+    color: #44bd32;
+}
+
+.bad {
+    color: #c23616;
+}

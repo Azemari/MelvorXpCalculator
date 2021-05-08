@@ -1,0 +1,180 @@
+﻿[
+  {
+    "Name": "Bronze Bar",
+    "ImageUrl": "/Images/Items/Smithing/Bronze_Bar.svg",
+    "Quantity": "1",
+    "Category": "Smithing",
+    "SubCategory": "Bars",
+    "Xp": "5",
+    "Requirements": [
+      {
+        "Name": "Copper Ore",
+        "ImageUrl": "/Images/Items/Smithing/Copper_ore.svg",
+        "Quantity": "1"
+      },
+      {
+        "Name": "Tin Ore",
+        "ImageUrl": "/Images/Items/Smithing/Tin_ore.svg",
+        "Quantity": "1"
+      }
+    ]
+  },
+
+  {
+    "Name": "Iron Bar",
+    "ImageUrl": "/Images/Items/Smithing/Iron_Bar.svg",
+    "Quantity": "1",
+    "Category": "Smithing",
+    "SubCategory": "Bars",
+    "Xp": "8",
+    "Requirements": [
+      {
+        "Name": "Iron Ore",
+        "ImageUrl": "/Images/Items/Smithing/Iron_ore.svg",
+        "Quantity": "1"
+      }
+    ]
+  },
+
+  {
+    "Name": "Steel Bar",
+    "ImageUrl": "/Images/Items/Smithing/Steel_Bar.svg",
+    "Quantity": "1",
+    "Category": "Smithing",
+    "SubCategory": "Bars",
+    "Xp": "12",
+    "Requirements": [
+      {
+        "Name": "Iron Ore",
+        "ImageUrl": "/Images/Items/Smithing/Iron_ore.svg",
+        "Quantity": "1"
+      },
+      {
+        "Name": "Coal Ore",
+        "ImageUrl": "/Images/Items/Smithing/Coal_ore.svg",
+        "Quantity": "2"
+      }
+    ]
+  },
+
+  {
+    "Name": "Silver Bar",
+    "ImageUrl": "/Images/Items/Smithing/Silver_Bar.svg",
+    "Quantity": "1",
+    "Category": "Smithing",
+    "SubCategory": "Bars",
+    "Xp": "15",
+    "Requirements": [
+      {
+        "Name": "Silver Ore",
+        "ImageUrl": "/Images/Items/Smithing/Silver_ore.svg",
+        "Quantity": "1"
+      }
+    ]
+  },
+
+  {
+    "Name": "Gold Bar",
+    "ImageUrl": "/Images/Items/Smithing/Gold_Bar.svg",
+    "Quantity": "1",
+    "Category": "Smithing",
+    "SubCategory": "Bars",
+    "Xp": "20",
+    "Requirements": [
+      {
+        "Name": "Gold Ore",
+        "ImageUrl": "/Images/Items/Smithing/Gold_ore.svg",
+        "Quantity": "1"
+      }
+    ]
+  },
+
+  {
+    "Name": "Mithril Bar",
+    "ImageUrl": "/Images/Items/Smithing/Mithril_Bar.svg",
+    "Quantity": "1",
+    "Category": "Smithing",
+    "SubCategory": "Bars",
+    "Xp": "35",
+    "Requirements": [
+      {
+        "Name": "Mithril Ore",
+        "ImageUrl": "/Images/Items/Smithing/Mithril_ore.svg",
+        "Quantity": "1"
+      },
+      {
+        "Name": "Coal Ore",
+        "ImageUrl": "/Images/Items/Smithing/Coal_ore.svg",
+        "Quantity": "4"
+      }
+    ]
+  },
+
+  {
+    "Name": "Adamantite Bar",
+    "ImageUrl": "/Images/Items/Smithing/Adamantite_Bar.svg",
+    "Quantity": "1",
+    "Category": "Smithing",
+    "SubCategory": "Bars",
+    "Xp": "42",
+    "Requirements": [
+      {
+        "Name": "Adamantite Ore",
+        "ImageUrl": "/Images/Items/Smithing/Adamantite_ore.svg",
+        "Quantity": "1"
+      },
+      {
+        "Name": "Coal Ore",
+        "ImageUrl": "/Images/Items/Smithing/Coal_ore.svg",
+        "Quantity": "6"
+      }
+    ]
+  },
+
+  {
+    "Name": "Runite Bar",
+    "ImageUrl": "/Images/Items/Smithing/Runite_Bar.svg",
+    "Quantity": "1",
+    "Category": "Smithing",
+    "SubCategory": "Bars",
+    "Xp": "50",
+    "Requirements": [
+      {
+        "Name": "Runite Ore",
+        "ImageUrl": "/Images/Items/Smithing/Runite_ore.svg",
+        "Quantity": "1"
+      },
+      {
+        "Name": "Coal Ore",
+        "ImageUrl": "/Images/Items/Smithing/Coal_ore.svg",
+        "Quantity": "8"
+      }
+    ]
+  },
+
+  {
+    "Name": "Dragonite Bar",
+    "ImageUrl": "/Images/Items/Smithing/Dragonite_Bar.svg",
+    "Quantity": "1",
+    "Category": "Smithing",
+    "SubCategory": "Bars",
+    "Xp": "60",
+    "Requirements": [
+      {
+        "Name": "Runite Ore",
+        "ImageUrl": "/Images/Items/Smithing/Runite_Ore.svg",
+        "Quantity": "1"
+      },
+      {
+        "Name": "Dragonite Ore",
+        "ImageUrl": "/Images/Items/Smithing/Dragonite_Ore.svg",
+        "Quantity": "1"
+      },
+      {
+        "Name": "Coal Ore",
+        "ImageUrl": "/Images/Items/Smithing/Coal_ore.svg",
+        "Quantity": "12"
+      }
+    ]
+  }
+]

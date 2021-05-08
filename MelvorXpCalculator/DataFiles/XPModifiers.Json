@@ -1,0 +1,62 @@
+﻿[
+  {
+    "Name": "Ancient Ring of Skills",
+    "ImageUrl": "/Images/Items/Ancient_Ring_of_Skills.svg",
+    "Active": false,
+    "Effect": 8
+  },
+  {
+    "Name": "Pyro",
+    "ImageUrl": "/Images/Items/pyro.png",
+    "Active": false,
+    "Effect": 1
+  },
+  {
+    "Name": "Skill Cape",
+    "ImageUrl": "/Images/Items/Firemaking_Skillcape.svg",
+    "Active": false,
+    "Effect": 5
+  },
+  {
+    "Name": "Pit Jump",
+    "ImageUrl": "/Images/Skills/Agility.svg",
+    "Active": false,
+    "Effect": 1
+  },
+  {
+    "Name": "Tree Climb",
+    "ImageUrl": "/Images/Skills/Agility.svg",
+    "Active": false,
+    "Effect": 3
+  },
+  {
+    "Name": "A Lovely Jog",
+    "ImageUrl": "/Images/Skills/Agility.svg",
+    "Active": false,
+    "Effect": 5
+  },
+  {
+    "Name": "Tree Hang",
+    "ImageUrl": "/Images/Skills/Agility.svg",
+    "Active": false,
+    "Effect": 6
+  },
+  {
+    "Name": "Coal Stone",
+    "ImageUrl": "/Images/Skills/Agility.svg",
+    "Active": false,
+    "Effect": -4
+  },
+  {
+    "Name": "Tree Balance",
+    "ImageUrl": "/Images/Skills/Agility.svg",
+    "Active": false,
+    "Effect": -4
+  },
+  {
+    "Name": "Water Trap",
+    "ImageUrl": "/Images/Skills/Agility.svg",
+    "Active": false,
+    "Effect": -6
+  }
+]

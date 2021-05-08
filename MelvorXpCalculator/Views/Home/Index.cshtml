@@ -1,0 +1,133 @@
+﻿@model GlobalViewModel
+@{      ViewData["Title"] = "Home";     }
+
+<form asp-controller="Home" asp-action="Index">
+    <div class="row">
+            <div class="col-12 col-md-6">
+                <h2>Upload Skills File</h2>
+                <input type="file" asp-for="@Model.SkillsFile" />
+                <p>
+                    Don't have a Skills file?
+                    @Html.ActionLink("Download one", "Skills", "DataFiles")
+                </p>
+            </div>
+            <div class="col-12 col-md-6">
+                <h2>Upload Modifiers File</h2>
+                <input type="file"  asp-for="@Model.ModifiersFile" />
+                <p>
+                    Don't have a Modifiers file?
+                    @Html.ActionLink("Download one", "Modifiers", "DataFiles")
+                </p>
+            </div>
+        <div class="col-12">
+            <input type="submit" class="btn btn-primary float-right" value="Submit"/>
+        </div>
+    </div>
+</form>
+<h2>Choose a Skill Calculator</h2>
+<div class="row">
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Woodcutting", "Skills", Model)">
+                <h4 class="text-center">Woodcutting</h4>
+                <img class="skill-image" src="~/Images/Skills/Woodcutting.svg" alt="Woodcutting" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Fishing", "Skills", Model)">
+                <h4 class="text-center">Fishing</h4>
+                <img class="skill-image" src="~/Images/Skills/Fishing.svg" alt="Fishing" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Firemaking", "Skills", Model)">
+                <h4 class="text-center">Firemaking</h4>
+                <img class="skill-image" src="~/Images/Skills/Firemaking.svg" alt="Firemaking" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Smithing", "Skills", Model)">
+                <h4 class="text-center">Smithing</h4>
+                <img class="skill-image" src="~/Images/Skills/Smithing.svg" alt="Smithing" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Cooking", "Skills", Model)">
+                <h4 class="text-center">Cooking</h4>
+                <img class="skill-image" src="~/Images/Skills/Cooking.svg" alt="Cooking" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Mining", "Skills", Model)">
+                <h4 class="text-center">Mining</h4>
+                <img class="skill-image" src="~/Images/Skills/Mining.svg" alt="Mining" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Thieving", "Skills", Model)">
+                <h4 class="text-center">Thieving</h4>
+                <img class="skill-image" src="~/Images/Skills/Thieving.svg" alt="Thieving" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Farming", "Skills", Model)">
+                <h4 class="text-center">Farming</h4>
+                <img class="skill-image" src="~/Images/Skills/Farming.svg" alt="Farming" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Fletching", "Skills", Model)">
+                <h4 class="text-center">Fletching</h4>
+                <img class="skill-image" src="~/Images/Skills/Fletching.svg" alt="Fletching" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Crafting", "Skills", Model)">
+                <h4 class="text-center">Crafting</h4>
+                <img class="skill-image" src="~/Images/Skills/Crafting.svg" alt="Crafting" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Runecrafting", "Skills", Model)">
+                <h4 class="text-center">Runecrafting</h4>
+                <img class="skill-image" src="~/Images/Skills/Runecrafting.svg" alt="Runecrafting" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Herblore", "Skills", Model)">
+                <h4 class="text-center">Herblore</h4>
+                <img class="skill-image" src="~/Images/Skills/Herblore.svg" alt="Herblore" />
+            </a>
+        </div>
+    </div>
+    <div class="col-6 col-md-2">
+        <div class="skill-container">
+            <a href="@Url.Action("Agility", "Skills", Model)">
+                <h4 class="text-center">Agility</h4>
+                <img class="skill-image" src="~/Images/Skills/Agility.svg" alt="Agility" />
+            </a>
+        </div>
+    </div>
+</div>

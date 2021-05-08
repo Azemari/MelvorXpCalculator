@@ -1,0 +1,93 @@
+﻿[
+  {
+    "Name": "Woodcutting",
+    "ImageUrl": "/Images/Skills/Woodcutting.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Fishing",
+    "ImageUrl": "/Images/Skills/Fishing.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Firemaking",
+    "ImageUrl": "/Images/Skills/Firemaking.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Cooking",
+    "ImageUrl": "/Images/Skills/Cooking.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Mining",
+    "ImageUrl": "/Images/Skills/Mining.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Smithing",
+    "ImageUrl": "/Images/Skills/Smithing.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Thieving",
+    "ImageUrl": "/Images/Skills/Thieving.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Farming",
+    "ImageUrl": "/Images/Skills/Farming.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Fletching",
+    "ImageUrl": "/Images/Skills/Fletching.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Crafting",
+    "ImageUrl": "/Images/Skills/Crafting.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Runecrafting",
+    "ImageUrl": "/Images/Skills/Runecrafting.svg",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Herblore",
+    "ImageUrl": "/Images/Skills/Herblore",
+    "Xp": "0",
+    "Level": "1"
+  },
+
+  {
+    "Name": "Agility",
+    "ImageUrl": "/Images/Skills/Agility.svg",
+    "Xp": "0",
+    "Level": "1"
+  }
+
+] 
