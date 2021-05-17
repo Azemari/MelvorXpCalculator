@@ -1,4 +1,14 @@
-﻿function UpdateGlobalModifier(_this) {
+﻿function AcceptCookies() {
+    document.cookie = "Consent=true; expires=Wed, 1 Jan 2025 00:00:00 UTC; path=/";
+    $("#cookieBanner").slideUp();
+}
+
+function RejectCookies() {
+    document.cookie = "Consent=never; expires=Wed, 1 Jan 2025 00:00:00 UTC; path=/";
+    $("#cookieBanner").slideUp();
+}
+
+function UpdateGlobalModifier(_this) {
     var currentModifier = parseInt($("#Modifiers_TotalXpModifier").val());
     console.log(currentModifier);
     var modifier = parseInt(currentModifier);
@@ -10,11 +20,12 @@
 }
 
 function updateXp(_this) {
-    console.log("Not Implemented");
+    $("#xp").val(calculateExperience(_this.value));
 }
 
 function updateLevel(_this) {
-    console.log("Not Implemented");
+    var xp = calculateLevel(_this.value);
+    $("#level").val(xp);
 }
 
 function calculateXp(_this) {
@@ -30,6 +41,7 @@ function calculateDifference(_this) {
     var difference = parseInt(targetXp) - parseInt(currentXp);
     $("#xpDifference").val(difference);
     $("#targetLevel").val(calculateLevel(targetXp));
+    //update(difference);
 }
 
 function calculateExperience(level) {
@@ -50,3 +62,21 @@ function calculateLevel(experience) {
     return index;
 }
 
+function update(difference) {
+    $.ajax({
+        url: '/Skills/Smithing',
+        data: "difference=" + difference,
+        type: 'GET',
+        success: function (result) {
+            //====From Stop and Search====
+            //$('#NeighbourhoodSelect').replaceWith($('#NeighbourhoodSelect', data));
+            //$("#NeighbourhoodSelect").change(function () {
+            //    NeighbourhoodSelectChanged();
+            //})
+            //Pass the xpDifference back to the controller, and use the new data to update the calculations
+        },
+        error: function (passParams) {
+            console.log("ERROR: " + passParams);
+        }
+    });
+}

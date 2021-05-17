@@ -3,7 +3,7 @@
 
 @Html.HiddenFor(m => m.Modifiers.TotalXpModifier)
 @Html.HiddenFor(m => m.Skill.Xp, new { id = "skillXp" })
-@Html.HiddenFor(m => m.Skill.Xp, new { id = "xpDifference" })
+<input id="xpDifference" type="hidden" value="0" />
 
 <div class="container">
     <div class="row">
@@ -26,9 +26,9 @@
         <div class="col-4">
             <h3>Level</h3>
             @Html.LabelFor(m => m.Skill.Level)
-            @Html.TextBoxFor(m => m.Skill.Level, new { @class = "form-control", type = "number", onChange = "updateXp(this)", Id="level" })
+            @Html.TextBoxFor(m => m.Skill.Level, new { @class = "form-control", type = "number", onChange = "updateXp(this)", Id = "level" })
             @Html.LabelFor(m => m.Skill.Xp)
-            @Html.TextBoxFor(m => m.Skill.Xp, new { @class = "form-control", type = "number", onChange = "updateLevel(this)", Id="xp" })
+            @Html.TextBoxFor(m => m.Skill.Xp, new { @class = "form-control", type = "number", onChange = "updateLevel(this)", Id = "xp" })
         </div>
         <div class="col-4">
             <h3>Target</h3>
@@ -39,8 +39,6 @@
         </div>
     </div>
     <p id="modifierDisplay">@Model.Modifiers.TotalXpModifier% Skill XP Modifier</p>
-    @{ float xpDifference = 550000;}
-
     <div class="panel-tabs">
         <ul>
             <li id="smithing-bars">
@@ -91,7 +89,7 @@
                             @{
                                 double bonusXp = (item.Xp * ((double)Model.Modifiers.TotalXpModifier / 100));
                                 double xpPerAction = item.Xp + bonusXp;
-                                var quantity = Math.Ceiling(xpDifference / xpPerAction);}
+                                var quantity = Math.Ceiling(1852660 / xpPerAction);}
                             <li>Requires:</li>
                             @foreach (var baseItem in item.Requirements)
                             {

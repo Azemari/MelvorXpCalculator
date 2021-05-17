@@ -1,30 +1,8 @@
 ﻿@model GlobalViewModel
 @{      ViewData["Title"] = "Home";     }
 
-<form asp-controller="Home" asp-action="Index">
-    <div class="row">
-            <div class="col-12 col-md-6">
-                <h2>Upload Skills File</h2>
-                <input type="file" asp-for="@Model.SkillsFile" />
-                <p>
-                    Don't have a Skills file?
-                    @Html.ActionLink("Download one", "Skills", "DataFiles")
-                </p>
-            </div>
-            <div class="col-12 col-md-6">
-                <h2>Upload Modifiers File</h2>
-                <input type="file"  asp-for="@Model.ModifiersFile" />
-                <p>
-                    Don't have a Modifiers file?
-                    @Html.ActionLink("Download one", "Modifiers", "DataFiles")
-                </p>
-            </div>
-        <div class="col-12">
-            <input type="submit" class="btn btn-primary float-right" value="Submit"/>
-        </div>
-    </div>
-</form>
 <h2>Choose a Skill Calculator</h2>
+    
 <div class="row">
     <div class="col-6 col-md-2">
         <div class="skill-container">

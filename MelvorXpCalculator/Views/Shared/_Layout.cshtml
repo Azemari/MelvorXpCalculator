@@ -8,6 +8,25 @@
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
+    @if (Context.Request.Cookies["Consent"] == "False" || Context.Request.Cookies["Consent"] == null)
+    {
+        <div id="cookieBanner">
+            <div class="container">
+                <div class="row pt-4">
+                    <div class="col-2">
+                        <img class="CookieImage" src="~/Images/Cookie.svg" />
+                    </div>
+                    <div class="col-10">
+                        <p>This site uses cookies to store your data for easy access when you return to the site. We do not share your information with any external site/s and all data stored is used to enchance your experience as a user.</p>
+                <div class="row float-right">
+                    <button onclick="RejectCookies()" class="btn btn-secondary">Essential Cookies</button>
+                    <button onclick="AcceptCookies()" class="btn btn-primary ml-2">Allow Cookies</button>
+                </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
