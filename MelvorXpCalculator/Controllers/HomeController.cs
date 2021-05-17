@@ -102,6 +102,10 @@ namespace MelvorXpCalculator.Controllers
         {
             return View();
         }
+        public IActionResult Roadmap()
+        {
+            return View();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
