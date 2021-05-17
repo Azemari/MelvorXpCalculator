@@ -39,46 +39,48 @@
         </div>
     </div>
     <p id="modifierDisplay">@Model.ModifierBonus% Skill XP Modifier</p>
-    <div class="panel-tabs">
+    <div id="smithing-nav" class="panel-tabs">
         <ul>
-            <li id="smithing-bars">
+            <li id="smithing-bars" class="active" onclick="setActivePanel(this)">
                 <img src="~/Images/Items/Smithing/Steel_Bar.svg" class="panel-tabs-image" />
                 Bars
             </li>
-            <li id="smithing-bronze">
+            <li id="smithing-bronze" onclick="setActivePanel(this)">
                 <img src="~/Images/Items/Smithing/Bronze/Bronze_Helmet.svg" class="panel-tabs-image" />
                 Bronze
             </li>
-            <li id="smithing-iron">
+            <li id="smithing-iron" onclick="setActivePanel(this)">
                 <img src="~/Images/Items/Smithing/Iron/Iron_Helmet.svg" class="panel-tabs-image" />
                 Iron
             </li>
-            <li>
+            <li id="smithing-steel" onclick="setActivePanel(this)">
                 <img src="~/Images/Items/Smithing/Steel/Steel_Helmet.svg" class="panel-tabs-image" />
                 Steel
             </li>
-            <li>
+            <li id="smithing-mithril" onclick="setActivePanel(this)">
                 <img src="~/Images/Items/Smithing/Mithril/Mithril_Helmet.svg" class="panel-tabs-image" />
                 Mithril
             </li>
-            <li>
+            <li id="smithing-adamant" onclick="setActivePanel(this)">
                 <img src="~/Images/Items/Smithing/Adamant/Adamant_Helmet.svg" class="panel-tabs-image" />
                 Adamant
             </li>
-            <li>
+            <li id="smithing-runite" onclick="setActivePanel(this)">
                 <img src="~/Images/Items/Smithing/Rune/Rune_Helmet.svg" class="panel-tabs-image" />
                 Rune
             </li>
-            <li>
+            <li id="smithing-dragonite" onclick="setActivePanel(this)">
                 <img src="~/Images/Items/Smithing/Dragon/Dragon_Helmet.svg" class="panel-tabs-image" />
                 Dragon
             </li>
         </ul>
     </div>
-    <div id="BarsPanel" class="panel">
+    <div id="bars-Panel" class="panel">
         <div class="row">
             @foreach (var item in Model.Items)
             {
+                @if (item.SubCategory == "Bars")
+                {
                 <div class="col-4">
                     <div class="item-container">
                         <div class="item-header">
@@ -118,6 +120,350 @@
                         </div>
                     </div>
                 </div>
+                }
+            }
+        </div>
+    </div>
+    <div id="bronze-Panel" class="panel" style="display:none;">
+        <div class="row">
+            @foreach (var item in Model.Items)
+            {
+                @if (item.SubCategory == "Bronze")
+                {
+                    <div class="col-4">
+                        <div class="item-container">
+                            <div class="item-header">
+                                <h4>@item.Name</h4>
+                                <img src="@item.ImageUrl" class="item-image" />
+                            </div>
+                            <ul>
+                                @{
+                                    double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
+                                    double xpPerAction = item.Xp + bonusXp;
+                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                <li>Requires:</li>
+                                @foreach (var baseItem in item.Requirements)
+                                {
+                                    <li>
+                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
+                                    </li>
+                                }
+                            </ul>
+                            <div class="text-center">
+                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
+                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @{
+                                    var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
+                                }
+                                @switch (time.Days)
+                                {
+                                    case 0:
+                                        <p>Time: @time.ToString("hh'h 'mm'm 'ss")s </p>
+                                        break;
+                                    default:
+                                        <p>Time: @time.ToString("d'd 'h'h 'mm'm 'ss")s </p>
+                                        break;
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div id="iron-Panel" class="panel" style="display:none;">
+        <div class="row">
+            @foreach (var item in Model.Items)
+            {
+                @if (item.SubCategory == "Iron")
+                {
+                    <div class="col-4">
+                        <div class="item-container">
+                            <div class="item-header">
+                                <h4>@item.Name</h4>
+                                <img src="@item.ImageUrl" class="item-image" />
+                            </div>
+                            <ul>
+                                @{
+                                    double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
+                                    double xpPerAction = item.Xp + bonusXp;
+                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                <li>Requires:</li>
+                                @foreach (var baseItem in item.Requirements)
+                                {
+                                    <li>
+                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
+                                    </li>
+                                }
+                            </ul>
+                            <div class="text-center">
+                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
+                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @{
+                                    var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
+                                }
+                                @switch (time.Days)
+                                {
+                                    case 0:
+                                        <p>Time: @time.ToString("hh'h 'mm'm 'ss")s </p>
+                                        break;
+                                    default:
+                                        <p>Time: @time.ToString("d'd 'h'h 'mm'm 'ss")s </p>
+                                        break;
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div id="steel-Panel" class="panel" style="display:none;">
+        <div class="row">
+            @foreach (var item in Model.Items)
+            {
+                @if (item.SubCategory == "Steel")
+                {
+                    <div class="col-4">
+                        <div class="item-container">
+                            <div class="item-header">
+                                <h4>@item.Name</h4>
+                                <img src="@item.ImageUrl" class="item-image" />
+                            </div>
+                            <ul>
+                                @{
+                                    double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
+                                    double xpPerAction = item.Xp + bonusXp;
+                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                <li>Requires:</li>
+                                @foreach (var baseItem in item.Requirements)
+                                {
+                                    <li>
+                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
+                                    </li>
+                                }
+                            </ul>
+                            <div class="text-center">
+                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
+                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @{
+                                    var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
+                                }
+                                @switch (time.Days)
+                                {
+                                    case 0:
+                                        <p>Time: @time.ToString("hh'h 'mm'm 'ss")s </p>
+                                        break;
+                                    default:
+                                        <p>Time: @time.ToString("d'd 'h'h 'mm'm 'ss")s </p>
+                                        break;
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div id="mithril-Panel" class="panel" style="display:none;">
+        <div class="row">
+            @foreach (var item in Model.Items)
+            {
+                @if (item.SubCategory == "Mithril")
+                {
+                    <div class="col-4">
+                        <div class="item-container">
+                            <div class="item-header">
+                                <h4>@item.Name</h4>
+                                <img src="@item.ImageUrl" class="item-image" />
+                            </div>
+                            <ul>
+                                @{
+                                    double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
+                                    double xpPerAction = item.Xp + bonusXp;
+                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                <li>Requires:</li>
+                                @foreach (var baseItem in item.Requirements)
+                                {
+                                    <li>
+                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
+                                    </li>
+                                }
+                            </ul>
+                            <div class="text-center">
+                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
+                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @{
+                                    var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
+                                }
+                                @switch (time.Days)
+                                {
+                                    case 0:
+                                        <p>Time: @time.ToString("hh'h 'mm'm 'ss")s </p>
+                                        break;
+                                    default:
+                                        <p>Time: @time.ToString("d'd 'h'h 'mm'm 'ss")s </p>
+                                        break;
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div id="adamant-Panel" class="panel" style="display:none;">
+        <div class="row">
+            @foreach (var item in Model.Items)
+            {
+                @if (item.SubCategory == "Adamant")
+                {
+                    <div class="col-4">
+                        <div class="item-container">
+                            <div class="item-header">
+                                <h4>@item.Name</h4>
+                                <img src="@item.ImageUrl" class="item-image" />
+                            </div>
+                            <ul>
+                                @{
+                                    double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
+                                    double xpPerAction = item.Xp + bonusXp;
+                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                <li>Requires:</li>
+                                @foreach (var baseItem in item.Requirements)
+                                {
+                                    <li>
+                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
+                                    </li>
+                                }
+                            </ul>
+                            <div class="text-center">
+                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
+                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @{
+                                    var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
+                                }
+                                @switch (time.Days)
+                                {
+                                    case 0:
+                                        <p>Time: @time.ToString("hh'h 'mm'm 'ss")s </p>
+                                        break;
+                                    default:
+                                        <p>Time: @time.ToString("d'd 'h'h 'mm'm 'ss")s </p>
+                                        break;
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div id="runite-Panel" class="panel" style="display:none;">
+        <div class="row">
+            @foreach (var item in Model.Items)
+            {
+                @if (item.SubCategory == "Rune")
+                {
+                    <div class="col-4">
+                        <div class="item-container">
+                            <div class="item-header">
+                                <h4>@item.Name</h4>
+                                <img src="@item.ImageUrl" class="item-image" />
+                            </div>
+                            <ul>
+                                @{
+                                    double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
+                                    double xpPerAction = item.Xp + bonusXp;
+                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                <li>Requires:</li>
+                                @foreach (var baseItem in item.Requirements)
+                                {
+                                    <li>
+                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
+                                    </li>
+                                }
+                            </ul>
+                            <div class="text-center">
+                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
+                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @{
+                                    var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
+                                }
+                                @switch (time.Days)
+                                {
+                                    case 0:
+                                        <p>Time: @time.ToString("hh'h 'mm'm 'ss")s </p>
+                                        break;
+                                    default:
+                                        <p>Time: @time.ToString("d'd 'h'h 'mm'm 'ss")s </p>
+                                        break;
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <div id="dragonite-Panel" class="panel" style="display:none;">
+        <div class="row">
+            @foreach (var item in Model.Items)
+            {
+                @if (item.SubCategory == "Dragon")
+                {
+                    <div class="col-4">
+                        <div class="item-container">
+                            <div class="item-header">
+                                <h4>@item.Name</h4>
+                                <img src="@item.ImageUrl" class="item-image" />
+                            </div>
+                            <ul>
+                                @{
+                                    double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
+                                    double xpPerAction = item.Xp + bonusXp;
+                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                <li>Requires:</li>
+                                @foreach (var baseItem in item.Requirements)
+                                {
+                                    <li>
+                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
+                                    </li>
+                                }
+                            </ul>
+                            <div class="text-center">
+                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
+                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @{
+                                    var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
+                                }
+                                @switch (time.Days)
+                                {
+                                    case 0:
+                                        <p>Time: @time.ToString("hh'h 'mm'm 'ss")s </p>
+                                        break;
+                                    default:
+                                        <p>Time: @time.ToString("d'd 'h'h 'mm'm 'ss")s </p>
+                                        break;
+                                }
+                            </div>
+                        </div>
+                    </div>
+                }
             }
         </div>
     </div>

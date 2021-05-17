@@ -62,6 +62,16 @@ function calculateLevel(experience) {
     return index;
 }
 
+function setActivePanel(_this) {
+    //Hide and unselect the currently active panel
+    var activePanel = $("#smithing-nav").find('.active');
+    activePanel.removeClass('active');
+    $("#" + activePanel[0].id.split('-')[1] + "-Panel").hide();
+    //Show and select the new panel
+    $("#" + $(_this)[0].id.split('-')[1] + "-Panel").show();
+    $(_this).addClass('active');
+}
+
 function update(difference) {
     $.ajax({
         url: '/Skills/Smithing',

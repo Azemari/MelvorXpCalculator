@@ -26,25 +26,6 @@ namespace MelvorXpCalculator.Controllers
         [HttpPost]
         public IActionResult Modifiers(XPModifiers form)
         {
-            if (Request.Cookies["Consent"] == "true")
-            {
-                //Update Cookie Data
-                CookieOptions options = new();
-                options.Expires = DateTime.Now.AddYears(1);
-
-                //Get each modifier and save them to the cookies (for retrieval) and update the GlobalViewModel
-                    Response.Cookies.Append("AncientRingOfSkills", form.AncientRingOfSkills.ToString(), options);
-                    Response.Cookies.Append("Pyro", form.Pyro.ToString(), options);
-                    Response.Cookies.Append("Skillcape", form.Skillcape.ToString(), options);
-                    Response.Cookies.Append("PitJump", form.PitJump.ToString(), options);
-                    Response.Cookies.Append("TreeClimb", form.TreeClimb.ToString(), options);
-                    Response.Cookies.Append("ALovelyJog", form.ALovelyJog.ToString(), options);
-                    Response.Cookies.Append("TreeHang", form.TreeHang.ToString(), options);
-                    Response.Cookies.Append("CoalStone", form.CoalStone.ToString(), options);
-                    Response.Cookies.Append("TreeBalance", form.TreeBalance.ToString(), options);
-                    Response.Cookies.Append("WaterTrap", form.WaterTrap.ToString(), options);
-            }
-
             int totalBonus = 0;
 
             if (form.AncientRingOfSkills)
@@ -67,6 +48,26 @@ namespace MelvorXpCalculator.Controllers
                 totalBonus += -4;
             if (form.WaterTrap)
                 totalBonus += -6;
+
+            if (Request.Cookies["Consent"] == "true")
+            {
+                //Update Cookie Data
+                CookieOptions options = new();
+                options.Expires = DateTime.Now.AddYears(1);
+
+                //Get each modifier and save them to the cookies (for retrieval) and update the GlobalViewModel
+                Response.Cookies.Append("AncientRingOfSkills", form.AncientRingOfSkills.ToString(), options);
+                Response.Cookies.Append("Pyro", form.Pyro.ToString(), options);
+                Response.Cookies.Append("Skillcape", form.Skillcape.ToString(), options);
+                Response.Cookies.Append("PitJump", form.PitJump.ToString(), options);
+                Response.Cookies.Append("TreeClimb", form.TreeClimb.ToString(), options);
+                Response.Cookies.Append("ALovelyJog", form.ALovelyJog.ToString(), options);
+                Response.Cookies.Append("TreeHang", form.TreeHang.ToString(), options);
+                Response.Cookies.Append("CoalStone", form.CoalStone.ToString(), options);
+                Response.Cookies.Append("TreeBalance", form.TreeBalance.ToString(), options);
+                Response.Cookies.Append("WaterTrap", form.WaterTrap.ToString(), options);
+                Response.Cookies.Append("totalBonus", totalBonus.ToString(), options);
+            }
 
             var viewModel = new GlobalViewModel()
             {

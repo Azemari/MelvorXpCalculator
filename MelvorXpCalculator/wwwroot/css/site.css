@@ -135,10 +135,13 @@ body {
 }
 
 .panel-tabs .active {
-    background-color: blue;
-    color: white;
+    background-color: #e2dfdf;
+    font-weight: bold;
 }
 
+.panel-tabs ul:hover{
+    cursor:pointer;
+}
 /*================================================================*/
 .item-container {
     background-color: #fafafa;
