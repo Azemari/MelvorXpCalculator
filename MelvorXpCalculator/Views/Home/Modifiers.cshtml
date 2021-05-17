@@ -1,20 +1,21 @@
-﻿@{ ViewData["Title"] = "Modifiers"; }
+﻿@model XPModifiers
 
+@{ ViewData["Title"] = "Modifiers"; }
 
 <div class="text-center">
-    <h1 class="display-4">Melvor Idle Xp Calculator</h1>
+    <h1 class="display-4">Global XP Modifiers</h1>
+    <p>Modifiers here are passed through to all skills and automatically added onto the calculations</p>
 </div>
 <div class="container">
-    @using (Html.BeginForm("UpdateModifiers", "Home"))
-    {
-        <br />
+    <br />
+    <form asp-action="Modifiers">
         <div class="form-row align-items-center">
             <div class="col-auto">
                 <div class="input-group mb-2 modifiers">
                     <div class="input-group-prepend">
                         <div class="input-group-text"><img class="modifiers-image" src="~/Images/Items/Ancient_Ring_of_Skills.svg" alt="Ancient Ring of Skills" /></div>
                     </div>
-                    <input type="checkbox" class="modifiers-checkbox">
+                    <input type="checkbox" asp-for="AncientRingOfSkills" class="modifiers-checkbox">
                     <p>Ancient Ring of Skills</p> <span class="modifiers-span good">+8%</span>
                 </div>
             </div>
@@ -25,7 +26,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><img class="modifiers-image" src="~/Images/Items/pyro.png" alt="Pyro" /></div>
                     </div>
-                    <input type="checkbox" class="modifiers-checkbox">
+                    <input type="checkbox" asp-for="Pyro" class="modifiers-checkbox">
                     <p>Pyro </p> <span class="modifiers-span good">+1%</span>
                 </div>
             </div>
@@ -36,7 +37,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><img class="modifiers-image" src="~/Images/Items/Firemaking_Skillcape.svg" alt="Firemaking Skillcape" /></div>
                     </div>
-                    <input type="checkbox" class="modifiers-checkbox">
+                    <input type="checkbox" asp-for="Skillcape" class="modifiers-checkbox">
                     <p>Skillcape</p> <span class="modifiers-span good">+5%</span>
                 </div>
             </div>
@@ -47,7 +48,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><img class="modifiers-image" src="~/Images/Skills/Agility.svg" alt="Agility Obstacle" /></div>
                     </div>
-                    <input type="checkbox" class="modifiers-checkbox">
+                    <input type="checkbox" asp-for="PitJump" class="modifiers-checkbox">
                     <p>Pit Jump</p> <span class="modifiers-span good">+1%</span>
                 </div>
             </div>
@@ -58,7 +59,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><img class="modifiers-image" src="~/Images/Skills/Agility.svg" alt="Agility Obstacle" /></div>
                     </div>
-                    <input type="checkbox" class="modifiers-checkbox">
+                    <input type="checkbox" asp-for="TreeClimb" class="modifiers-checkbox">
                     <p>Tree Climb</p> <span class="modifiers-span good">+3%</span>
                 </div>
             </div>
@@ -69,7 +70,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><img class="modifiers-image" src="~/Images/Skills/Agility.svg" alt="Agility Obstacle" /></div>
                     </div>
-                    <input type="checkbox" class="modifiers-checkbox">
+                    <input type="checkbox" asp-for="ALovelyJog" class="modifiers-checkbox">
                     <p>A Lovely Jog</p> <span class="modifiers-span good">+5%</span>
                 </div>
             </div>
@@ -80,7 +81,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><img class="modifiers-image" src="~/Images/Skills/Agility.svg" alt="Agility Obstacle" /></div>
                     </div>
-                    <input type="checkbox" class="modifiers-checkbox">
+                    <input type="checkbox" asp-for="TreeHang" class="modifiers-checkbox">
                     <p>Tree Hang</p> <span class="modifiers-span good">+6%</span>
                 </div>
             </div>
@@ -91,7 +92,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><img class="modifiers-image" src="~/Images/Skills/Agility.svg" alt="Agility Obstacle" /></div>
                     </div>
-                    <input type="checkbox" class="modifiers-checkbox">
+                    <input type="checkbox" asp-for="CoalStone" class="modifiers-checkbox">
                     <p>Coal Stone</p> <span class="modifiers-span bad">-4%</span>
                 </div>
             </div>
@@ -102,7 +103,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text"><img class="modifiers-image" src="~/Images/Skills/Agility.svg" alt="Agility Obstacle" /></div>
                     </div>
-                    <input type="checkbox" class="modifiers-checkbox">
+                    <input type="checkbox" asp-for="TreeBalance" class="modifiers-checkbox">
                     <p>Tree Balance</p> <span class="modifiers-span bad">-4%</span>
                 </div>
             </div>
@@ -118,5 +119,6 @@
                 </div>
             </div>
         </div>
-    }
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
 </div>

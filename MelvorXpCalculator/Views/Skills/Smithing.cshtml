@@ -1,7 +1,7 @@
-﻿@model HomeViewModel
+﻿@model SkillViewModel
 @{ ViewData["Title"] = "Smithing"; }
 
-@Html.HiddenFor(m => m.Modifiers.TotalXpModifier)
+@Html.HiddenFor(m => m.ModifierBonus)
 @Html.HiddenFor(m => m.Skill.Xp, new { id = "skillXp" })
 <input id="xpDifference" type="hidden" value="0" />
 
@@ -38,7 +38,7 @@
             <input id="targetXp" type="number" class="form-control" min="0" onchange="calculateDifference(this)" />
         </div>
     </div>
-    <p id="modifierDisplay">@Model.Modifiers.TotalXpModifier% Skill XP Modifier</p>
+    <p id="modifierDisplay">@Model.ModifierBonus% Skill XP Modifier</p>
     <div class="panel-tabs">
         <ul>
             <li id="smithing-bars">
@@ -87,7 +87,7 @@
                         </div>
                         <ul>
                             @{
-                                double bonusXp = (item.Xp * ((double)Model.Modifiers.TotalXpModifier / 100));
+                                double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
                                 double xpPerAction = item.Xp + bonusXp;
                                 var quantity = Math.Ceiling(1852660 / xpPerAction);}
                             <li>Requires:</li>

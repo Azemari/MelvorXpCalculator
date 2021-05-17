@@ -2,9 +2,9 @@
 
 namespace MelvorXpCalculator.Models
 {
-    public class HomeViewModel
+    public class SkillViewModel
     {
-        public GlobalModifiers Modifiers { get; set; }
+        public int ModifierBonus { get; set; }
         public Skill Skill { get; set; }
         public List<Item> Items { get; set; }
     }

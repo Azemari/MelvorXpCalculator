@@ -4,7 +4,7 @@ namespace MelvorXpCalculator.Models
 {
     public class GlobalViewModel
     {
-        public List<Modifier> Modifiers { get; set; }
+        public int ModifiersBonus { get; set; }
         public List<Skill> Skills { get; set; }
     }
 }
