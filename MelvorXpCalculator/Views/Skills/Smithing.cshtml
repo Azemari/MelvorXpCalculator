@@ -97,20 +97,20 @@
                             @{
                                 double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
                                 double xpPerAction = item.Xp + bonusXp;
-                                var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                var quantity = Math.Ceiling((Model.Skill.TargetXp - Model.Skill.Xp) / xpPerAction);}
                             <li>Requires:</li>
                             @foreach (var baseItem in item.Requirements)
                             {
                                 <li>
-                                    <span>@(baseItem.Quantity * quantity)</span>
+                                    <span>@(string.Format("{0:n0}", baseItem.Quantity * quantity))</span>
                                     <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
                                 </li>
                             }
                         </ul>
                         <div class="text-center">
-                            <span>Produces:</span> @(item.Quantity * quantity)
+                            <span>Produces:</span> @(string.Format("{0:n0}", item.Quantity * quantity))
                             <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
-                            @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                            @(string.Format("{0:n0}", Math.Ceiling(quantity * xpPerAction))) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
                             @{
                                 var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
                             }
@@ -146,20 +146,20 @@
                                 @{
                                     double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
                                     double xpPerAction = item.Xp + bonusXp;
-                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                    var quantity = Math.Ceiling((Model.Skill.TargetXp - Model.Skill.Xp) / xpPerAction);}
                                 <li>Requires:</li>
                                 @foreach (var baseItem in item.Requirements)
                                 {
                                     <li>
-                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <span>@(string.Format("{0:n0}", baseItem.Quantity * quantity))</span>
                                         <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
                                     </li>
                                 }
                             </ul>
                             <div class="text-center">
-                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <span>Produces:</span> @(string.Format("{0:n0}", item.Quantity * quantity))
                                 <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
-                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @(string.Format("{0:n0}", Math.Ceiling(quantity * xpPerAction))) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
                                 @{
                                     var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
                                 }
@@ -195,20 +195,20 @@
                                 @{
                                     double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
                                     double xpPerAction = item.Xp + bonusXp;
-                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                    var quantity = Math.Ceiling((Model.Skill.TargetXp - Model.Skill.Xp) / xpPerAction);}
                                 <li>Requires:</li>
                                 @foreach (var baseItem in item.Requirements)
                                 {
                                     <li>
-                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <span>@(string.Format("{0:n0}", baseItem.Quantity * quantity))</span>
                                         <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
                                     </li>
                                 }
                             </ul>
                             <div class="text-center">
-                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <span>Produces:</span> @(string.Format("{0:n0}", item.Quantity * quantity))
                                 <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
-                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @(string.Format("{0:n0}", Math.Ceiling(quantity * xpPerAction))) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
                                 @{
                                     var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
                                 }
@@ -244,20 +244,20 @@
                                 @{
                                     double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
                                     double xpPerAction = item.Xp + bonusXp;
-                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                    var quantity = Math.Ceiling((Model.Skill.TargetXp - Model.Skill.Xp) / xpPerAction);}
                                 <li>Requires:</li>
                                 @foreach (var baseItem in item.Requirements)
                                 {
                                     <li>
-                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <span>@(string.Format("{0:n0}", baseItem.Quantity * quantity))</span>
                                         <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
                                     </li>
                                 }
                             </ul>
                             <div class="text-center">
-                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <span>Produces:</span> @(string.Format("{0:n0}", item.Quantity * quantity))
                                 <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
-                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @(string.Format("{0:n0}", Math.Ceiling(quantity * xpPerAction))) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
                                 @{
                                     var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
                                 }
@@ -293,20 +293,20 @@
                                 @{
                                     double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
                                     double xpPerAction = item.Xp + bonusXp;
-                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                    var quantity = Math.Ceiling((Model.Skill.TargetXp - Model.Skill.Xp) / xpPerAction);}
                                 <li>Requires:</li>
                                 @foreach (var baseItem in item.Requirements)
                                 {
                                     <li>
-                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <span>@(string.Format("{0:n0}", baseItem.Quantity * quantity))</span>
                                         <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
                                     </li>
                                 }
                             </ul>
                             <div class="text-center">
-                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <span>Produces:</span> @(string.Format("{0:n0}", item.Quantity * quantity))
                                 <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
-                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @(string.Format("{0:n0}", Math.Ceiling(quantity * xpPerAction))) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
                                 @{
                                     var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
                                 }
@@ -342,20 +342,20 @@
                                 @{
                                     double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
                                     double xpPerAction = item.Xp + bonusXp;
-                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                    var quantity = Math.Ceiling((Model.Skill.TargetXp - Model.Skill.Xp) / xpPerAction);}
                                 <li>Requires:</li>
                                 @foreach (var baseItem in item.Requirements)
                                 {
                                     <li>
-                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <span>@(string.Format("{0:n0}", baseItem.Quantity * quantity))</span>
                                         <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
                                     </li>
                                 }
                             </ul>
                             <div class="text-center">
-                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <span>Produces:</span> @(string.Format("{0:n0}", item.Quantity * quantity))
                                 <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
-                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @(string.Format("{0:n0}", Math.Ceiling(quantity * xpPerAction))) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
                                 @{
                                     var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
                                 }
@@ -391,20 +391,20 @@
                                 @{
                                     double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
                                     double xpPerAction = item.Xp + bonusXp;
-                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                    var quantity = Math.Ceiling((Model.Skill.TargetXp - Model.Skill.Xp) / xpPerAction);}
                                 <li>Requires:</li>
                                 @foreach (var baseItem in item.Requirements)
                                 {
                                     <li>
-                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <span>@(string.Format("{0:n0}", baseItem.Quantity * quantity))</span>
                                         <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
                                     </li>
                                 }
                             </ul>
                             <div class="text-center">
-                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <span>Produces:</span> @(string.Format("{0:n0}", item.Quantity * quantity))
                                 <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
-                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @(string.Format("{0:n0}", Math.Ceiling(quantity * xpPerAction))) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
                                 @{
                                     var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
                                 }
@@ -440,20 +440,20 @@
                                 @{
                                     double bonusXp = (item.Xp * ((double)Model.ModifierBonus / 100));
                                     double xpPerAction = item.Xp + bonusXp;
-                                    var quantity = Math.Ceiling(1852660 / xpPerAction);}
+                                    var quantity = Math.Ceiling((Model.Skill.TargetXp - Model.Skill.Xp) / xpPerAction);}
                                 <li>Requires:</li>
                                 @foreach (var baseItem in item.Requirements)
                                 {
                                     <li>
-                                        <span>@(baseItem.Quantity * quantity)</span>
+                                        <span>@(string.Format("{0:n0}", baseItem.Quantity * quantity))</span>
                                         <img src="@baseItem.ImageUrl" alt="@baseItem.Name" class="item-baseitem-image" />
                                     </li>
                                 }
                             </ul>
                             <div class="text-center">
-                                <span>Produces:</span> @(item.Quantity * quantity)
+                                <span>Produces:</span> @(string.Format("{0:n0}", item.Quantity * quantity))
                                 <img src="@item.ImageUrl" alt="@item.Name" class="item-baseitem-image" />
-                                @(Math.Ceiling(quantity * xpPerAction)) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
+                                @(string.Format("{0:n0}", Math.Ceiling(quantity * xpPerAction))) <img src="/Images/xp.svg" alt="Xp Symbol" class="item-baseitem-image" />
                                 @{
                                     var time = new TimeSpan(MelvorXpCalculator.Utilities.GetActionTime.PerAction("Smithing").Ticks * (long)quantity);
                                 }
