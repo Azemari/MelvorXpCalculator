@@ -156,12 +156,15 @@ body {
 
 .craftable{
     color: #4cd137;
+    font-weight: bold;
 }
 .target-craftable {
     color: #e1b12c;
+    font-weight: bold;
 }
 .not-craftable {
     color: #e84118;
+    font-weight: bold;
 }
 
 .item-image{
