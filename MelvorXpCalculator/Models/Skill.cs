@@ -8,5 +8,6 @@
         public int Level { get; set; }
         public float TargetXp { get; set; }
         public int TargetLevel { get; set; }
+        public bool Gloves { get; set; }
     }
 }

@@ -9,14 +9,16 @@ function RejectCookies() {
 }
 
 function UpdateGlobalModifier(_this) {
-    var currentModifier = parseInt($("#Modifiers_TotalXpModifier").val());
-    console.log(currentModifier);
+    var currentModifier = parseInt($("#modifierDisplay").text().split('%')[0]);
     var modifier = parseInt(currentModifier);
     if ($(_this).is(":checked"))
-        modifier = parseInt(currentModifier) + parseInt(_this.value);
-    else
-        modifier = $("#Modifiers_TotalXpModifier").val();
+        modifier = currentModifier + parseInt(50);
+    else {
+        modifier =  currentModifier - 50;
+    }
+    $("#Modifier").val(modifier);
     $("#modifierDisplay").text(modifier + "% Skill XP Modifier");
+    $("#SmithingSubmit").click();
 }
 
 function updateXp(_this) {

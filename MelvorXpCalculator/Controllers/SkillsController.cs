@@ -28,12 +28,14 @@ namespace MelvorXpCalculator.Controllers
                     skill.Xp = float.Parse(Request.Cookies["SmithingXp"]);
                     skill.TargetLevel = int.Parse(Request.Cookies["SmithingTargetLevel"]);
                     skill.TargetXp = float.Parse(Request.Cookies["SmithingTargetXp"]);
+                    skill.Gloves = bool.Parse(Request.Cookies["SmithingGloves"]);
                 }
                 catch {
                     skill.Level = 1;
                     skill.Xp = 1;
                     skill.TargetLevel = 1;
                     skill.TargetXp = 1;
+                    skill.Gloves = false;
                 }
             }
             else
@@ -42,10 +44,13 @@ namespace MelvorXpCalculator.Controllers
                 skill.Xp = 1;
                 skill.TargetLevel = 1;
                 skill.TargetXp = 1;
+                skill.Gloves = false;
             }
 
             if (int.TryParse(Request.Cookies["totalBonus"], out int totalBonus))
                 globalViewModel.ModifiersBonus = totalBonus;
+            if (skill.Gloves)
+                globalViewModel.ModifiersBonus += 50;
 
 
             SkillViewModel viewModel = new()
@@ -71,6 +76,7 @@ namespace MelvorXpCalculator.Controllers
             Response.Cookies.Append("SmithingXp", form.Skill.Xp.ToString(), options);
             Response.Cookies.Append("SmithingTargetLevel", form.Skill.TargetLevel.ToString(), options);
             Response.Cookies.Append("SmithingTargetXp", form.Skill.TargetXp.ToString(), options);
+            Response.Cookies.Append("SmithingGloves", form.Skill.Gloves.ToString(), options);
 
             return View(form);
         }
