@@ -10,34 +10,40 @@
         <img class="skill-icon mr-2" src="@Model.Skill.ImageUrl" />
         <h1>@Model.Skill.Name</h1>
     </div>
-    <div class="row">
-        <div class="col-4">
-            <h3>Upgrades</h3>
-            <div class="form-group">
-                <label for="SmithingGloves">
-                    <img class="skill-icon mr-2" src="~/Images/Smithing_Gloves.svg" />
-                    Smithing Gloves
-                </label>
-                <input type="checkbox" id="SmithingGloves" value="50" onchange="UpdateGlobalModifier(this)">
-                <br />
-                <span>+50% Smithing XP when worn, until depleted.</span>
+    <form asp-action="Smithing">
+        <div class="row">
+            <div class="col-4">
+                <h3>Upgrades</h3>
+                <div class="form-group">
+                    <label for="SmithingGloves">
+                        <img class="skill-icon mr-2" src="~/Images/Smithing_Gloves.svg" />
+                        Smithing Gloves
+                    </label>
+                    <input type="checkbox" id="SmithingGloves" value="50" onchange="UpdateGlobalModifier(this)">
+                    <br />
+                    <span>+50% Smithing XP when worn, until depleted.</span>
+                </div>
+            </div>
+            <div class="col-4">
+                <h3>Level</h3>
+                <label>Level</label>
+                @Html.HiddenFor(i => i.ModifierBonus)
+                @Html.HiddenFor(i => i.Skill.Name)
+                @Html.HiddenFor(i => i.Skill.ImageUrl)
+                <input id="level" asp-for="Skill.Level" type="number" class="form-control" onchange="updateXp(this)" />
+                <label>Xp</label>
+                <input id="xp" asp-for="Skill.Xp" type="number" class="form-control" min="0" onchange="updateLevel(this)" />
+            </div>
+            <div class="col-4">
+                <h3>Target</h3>
+                <label>Level</label>
+                <input id="targetLevel" asp-for="Skill.TargetLevel" type="number" class="form-control" onchange="calculateXp(this)" />
+                <label>Xp</label>
+                <input id="targetXp" asp-for="Skill.TargetXp" type="number" class="form-control" min="0" onchange="calculateDifference(this)" />
+                <button type="submit" class="btn btn-primary float-right mt-2">Update</button>
             </div>
         </div>
-        <div class="col-4">
-            <h3>Level</h3>
-            @Html.LabelFor(m => m.Skill.Level)
-            @Html.TextBoxFor(m => m.Skill.Level, new { @class = "form-control", type = "number", onChange = "updateXp(this)", Id = "level" })
-            @Html.LabelFor(m => m.Skill.Xp)
-            @Html.TextBoxFor(m => m.Skill.Xp, new { @class = "form-control", type = "number", onChange = "updateLevel(this)", Id = "xp" })
-        </div>
-        <div class="col-4">
-            <h3>Target</h3>
-            <label>Level</label>
-            <input id="targetLevel" type="number" class="form-control" onchange="calculateXp(this)" />
-            <label>Xp</label>
-            <input id="targetXp" type="number" class="form-control" min="0" onchange="calculateDifference(this)" />
-        </div>
-    </div>
+    </form>
     <p id="modifierDisplay">@Model.ModifierBonus% Skill XP Modifier</p>
     <div id="smithing-nav" class="panel-tabs">
         <ul>
