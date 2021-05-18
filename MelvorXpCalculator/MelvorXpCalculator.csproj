@@ -3,6 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <UserSecretsId>32ad6436-5115-4db2-b142-7371325efc81</UserSecretsId>
+    <Authors>Azemari</Authors>
+    <Company>Azemari</Company>
+    <Product>MelvorCalc</Product>
   </PropertyGroup>
 
   <ItemGroup>

@@ -170,14 +170,14 @@
     "Xp": "60",
     "Requirements": [
       {
-        "Name": "Runite Ore",
-        "ImageUrl": "/Images/Items/Smithing/Runite_Ore.svg",
-        "Quantity": "1"
-      },
-      {
         "Name": "Dragonite Ore",
         "ImageUrl": "/Images/Items/Smithing/Dragonite_Ore.svg",
         "Quantity": "1"
+      },
+      {
+        "Name": "Runite Ore",
+        "ImageUrl": "/Images/Items/Smithing/Runite_Ore.svg",
+        "Quantity": "2"
       },
       {
         "Name": "Coal Ore",

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Melvor Xp Calculator</title>
+    <title>@ViewData["Title"] - MelvorCalc</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
@@ -30,7 +30,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Melvor Xp Calculator</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MelvorCalc</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -59,7 +59,17 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - Azemari - <a asp-area="" asp-controller="Home" asp-action="Privacy">Legal Stuff</a>
+            <div class="row">
+                <div class="col-6">
+                    &copy; 2021 - Azemari - <a asp-area="" asp-controller="Home" asp-action="Privacy">Legal Stuff</a>
+                </div>
+                <div class="col-6">
+                    <div class="patreon">
+                        <a href="https://www.patreon.com/bePatron?u=55786970" data-patreon-widget-type="become-patron-button">Become a Patron!</a>
+                        <script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
