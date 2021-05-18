@@ -4,6 +4,7 @@ namespace MelvorXpCalculator.Models
 {
     public class Item : BaseItem
     {
+        public int Level { get; set; }
         public string Category { get; set; }
 #nullable enable
         public string? SubCategory { get; set; }

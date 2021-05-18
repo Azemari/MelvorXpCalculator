@@ -135,18 +135,33 @@ body {
 }
 
 .panel-tabs .active {
-    background-color: #e2dfdf;
+    background-color: #f5f6fa;
     font-weight: bold;
 }
 
 .panel-tabs ul:hover{
     cursor:pointer;
 }
+
+.panel {
+    background-color: #f5f6fa;
+    padding: 10px 10px 0 10px;
+    border-radius: 10px;
+}
 /*================================================================*/
 .item-container {
-    background-color: #fafafa;
-    border-radius: 10px;
+    background-color: #f5f6fa;
     margin-bottom: 15px;
+}
+
+.craftable{
+    color: #4cd137;
+}
+.target-craftable {
+    color: #e1b12c;
+}
+.not-craftable {
+    color: #e84118;
 }
 
 .item-image{

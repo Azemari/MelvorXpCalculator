@@ -7,16 +7,16 @@
 
 <div class="container">
     <div class="row">
-        <img class="skill-icon mr-2" src="@Model.Skill.ImageUrl" />
+        <img class="skill-icon mr-2" src="@Model.Skill.ImageUrl" alt="@Model.Skill.Name Icon " />
         <h1>@Model.Skill.Name</h1>
     </div>
     <form asp-action="Smithing">
         <div class="row">
             <div class="col-4">
-                <h3>Upgrades</h3>
+                <h2>Upgrades</h2>
                 <div class="form-group">
                     <label for="SmithingGloves">
-                        <img class="skill-icon mr-2" src="~/Images/Smithing_Gloves.svg" />
+                        <img class="skill-icon mr-2" alt="Smithing gloves" src="~/Images/Smithing_Gloves.svg" />
                         Smithing Gloves
                     </label>
                     <input type="checkbox" asp-for="Skill.Gloves" id="SmithingGloves" onchange="UpdateGlobalModifier(this)">
@@ -27,19 +27,19 @@
                 </div>
             </div>
             <div class="col-4">
-                <h3>Level</h3>
-                <label>Level</label>
+                <h2>Level</h2>
+                <label for="level">Level</label>
                 @Html.HiddenFor(i => i.Skill.Name)
                 @Html.HiddenFor(i => i.Skill.ImageUrl)
                 <input id="level" asp-for="Skill.Level" type="number" class="form-control" onchange="updateXp(this)" />
-                <label>Xp</label>
+                <label for="xp">Xp</label>
                 <input id="xp" asp-for="Skill.Xp" type="number" class="form-control" min="0" onchange="updateLevel(this)" />
             </div>
             <div class="col-4">
-                <h3>Target</h3>
-                <label>Level</label>
+                <h2>Target</h2>
+                <label for="targetLevel">Level</label>
                 <input id="targetLevel" asp-for="Skill.TargetLevel" type="number" class="form-control" onchange="calculateXp(this)" />
-                <label>Xp</label>
+                <label for="targetXp">Xp</label>
                 <input id="targetXp" asp-for="Skill.TargetXp" type="number" class="form-control" min="0" onchange="calculateDifference(this)" />
                 <button id="SmithingSubmit" type="submit" class="btn btn-primary float-right mt-2">Update</button>
             </div>
@@ -48,35 +48,35 @@
     <div id="smithing-nav" class="panel-tabs">
         <ul>
             <li id="smithing-bars" class="active" onclick="setActivePanel(this)">
-                <img src="~/Images/Items/Smithing/Steel_Bar.svg" class="panel-tabs-image" />
+                <img src="~/Images/Items/Smithing/Steel_Bar.svg" alt="Bar Tab" class="panel-tabs-image" />
                 Bars
             </li>
             <li id="smithing-bronze" onclick="setActivePanel(this)">
-                <img src="~/Images/Items/Smithing/Bronze/Bronze_Helmet.svg" class="panel-tabs-image" />
+                <img src="~/Images/Items/Smithing/Bronze/Bronze_Helmet.svg" alt="Bronze Tab" class="panel-tabs-image" />
                 Bronze
             </li>
             <li id="smithing-iron" onclick="setActivePanel(this)">
-                <img src="~/Images/Items/Smithing/Iron/Iron_Helmet.svg" class="panel-tabs-image" />
+                <img src="~/Images/Items/Smithing/Iron/Iron_Helmet.svg" alt="Iron Tab" class="panel-tabs-image" />
                 Iron
             </li>
             <li id="smithing-steel" onclick="setActivePanel(this)">
-                <img src="~/Images/Items/Smithing/Steel/Steel_Helmet.svg" class="panel-tabs-image" />
+                <img src="~/Images/Items/Smithing/Steel/Steel_Helmet.svg" alt="Steel Tab" class="panel-tabs-image" />
                 Steel
             </li>
             <li id="smithing-mithril" onclick="setActivePanel(this)">
-                <img src="~/Images/Items/Smithing/Mithril/Mithril_Helmet.svg" class="panel-tabs-image" />
+                <img src="~/Images/Items/Smithing/Mithril/Mithril_Helmet.svg" alt="Mithril Tab" class="panel-tabs-image" />
                 Mithril
             </li>
             <li id="smithing-adamant" onclick="setActivePanel(this)">
-                <img src="~/Images/Items/Smithing/Adamant/Adamant_Helmet.svg" class="panel-tabs-image" />
+                <img src="~/Images/Items/Smithing/Adamant/Adamant_Helmet.svg" alt="Adamant Tab" class="panel-tabs-image" />
                 Adamant
             </li>
             <li id="smithing-runite" onclick="setActivePanel(this)">
-                <img src="~/Images/Items/Smithing/Rune/Rune_Helmet.svg" class="panel-tabs-image" />
+                <img src="~/Images/Items/Smithing/Rune/Rune_Helmet.svg" alt="Runite Tab" class="panel-tabs-image" />
                 Rune
             </li>
             <li id="smithing-dragonite" onclick="setActivePanel(this)">
-                <img src="~/Images/Items/Smithing/Dragon/Dragon_Helmet.svg" class="panel-tabs-image" />
+                <img src="~/Images/Items/Smithing/Dragon/Dragon_Helmet.svg" alt="Dragon Tab" class="panel-tabs-image" />
                 Dragon
             </li>
         </ul>
@@ -88,10 +88,23 @@
                 @if (item.SubCategory == "Bars")
                 {
                 <div class="col-4">
+                    @{ 
+                        string craftable;
+                        if(Model.Skill.Level < item.Level)
+                        {
+                            craftable = "not-craftable";
+                            if(Model.Skill.TargetLevel >= item.Level)
+                                craftable = "target-craftable";
+                        }
+                        else
+                            craftable = "craftable";
+                    }
                     <div class="item-container">
                         <div class="item-header">
-                            <h4>@item.Name</h4>
-                            <img src="@item.ImageUrl" class="item-image" />
+                            <h3>@item.Name</h3>
+                            <img src="@item.ImageUrl" alt="@item.Name" class="item-image" />
+                            <br />
+                            <span class="@craftable">Level: @item.Level</span>
                         </div>
                         <ul>
                             @{
@@ -136,11 +149,22 @@
             {
                 @if (item.SubCategory == "Bronze")
                 {
+                        string craftable;
+                        if (Model.Skill.Level < item.Level)
+                        {
+                            craftable = "not-craftable";
+                            if (Model.Skill.TargetLevel >= item.Level)
+                                craftable = "target-craftable";
+                        }
+                        else
+                            craftable = "craftable";
                     <div class="col-4">
                         <div class="item-container">
                             <div class="item-header">
-                                <h4>@item.Name</h4>
+                                <h3>@item.Name</h3>
                                 <img src="@item.ImageUrl" class="item-image" />
+                                <br />
+                                <span class="@craftable">Level: @item.Level</span>
                             </div>
                             <ul>
                                 @{
@@ -185,11 +209,22 @@
             {
                 @if (item.SubCategory == "Iron")
                 {
+                        string craftable;
+                        if (Model.Skill.Level < item.Level)
+                        {
+                            craftable = "not-craftable";
+                            if (Model.Skill.TargetLevel >= item.Level)
+                                craftable = "target-craftable";
+                        }
+                        else
+                            craftable = "craftable";
                     <div class="col-4">
                         <div class="item-container">
                             <div class="item-header">
-                                <h4>@item.Name</h4>
+                                <h3>@item.Name</h3>
                                 <img src="@item.ImageUrl" class="item-image" />
+                                <br />
+                                <span class="@craftable">Level: @item.Level</span>
                             </div>
                             <ul>
                                 @{
@@ -234,11 +269,22 @@
             {
                 @if (item.SubCategory == "Steel")
                 {
+                        string craftable;
+                        if (Model.Skill.Level < item.Level)
+                        {
+                            craftable = "not-craftable";
+                            if (Model.Skill.TargetLevel >= item.Level)
+                                craftable = "target-craftable";
+                        }
+                        else
+                            craftable = "craftable";
                     <div class="col-4">
                         <div class="item-container">
                             <div class="item-header">
-                                <h4>@item.Name</h4>
+                                <h3>@item.Name</h3>
                                 <img src="@item.ImageUrl" class="item-image" />
+                                <br />
+                                <span class="@craftable">Level: @item.Level</span>
                             </div>
                             <ul>
                                 @{
@@ -283,11 +329,22 @@
             {
                 @if (item.SubCategory == "Mithril")
                 {
+                        string craftable;
+                        if (Model.Skill.Level < item.Level)
+                        {
+                            craftable = "not-craftable";
+                            if (Model.Skill.TargetLevel >= item.Level)
+                                craftable = "target-craftable";
+                        }
+                        else
+                            craftable = "craftable";
                     <div class="col-4">
                         <div class="item-container">
                             <div class="item-header">
-                                <h4>@item.Name</h4>
+                                <h3>@item.Name</h3>
                                 <img src="@item.ImageUrl" class="item-image" />
+                                <br />
+                                <span class="@craftable">Level: @item.Level</span>
                             </div>
                             <ul>
                                 @{
@@ -332,11 +389,22 @@
             {
                 @if (item.SubCategory == "Adamant")
                 {
+                        string craftable;
+                        if (Model.Skill.Level < item.Level)
+                        {
+                            craftable = "not-craftable";
+                            if (Model.Skill.TargetLevel >= item.Level)
+                                craftable = "target-craftable";
+                        }
+                        else
+                            craftable = "craftable";
                     <div class="col-4">
                         <div class="item-container">
                             <div class="item-header">
-                                <h4>@item.Name</h4>
+                                <h3>@item.Name</h3>
                                 <img src="@item.ImageUrl" class="item-image" />
+                                <br />
+                                <span class="@craftable">Level: @item.Level</span>
                             </div>
                             <ul>
                                 @{
@@ -381,11 +449,22 @@
             {
                 @if (item.SubCategory == "Rune")
                 {
+                        string craftable;
+                        if (Model.Skill.Level < item.Level)
+                        {
+                            craftable = "not-craftable";
+                            if (Model.Skill.TargetLevel >= item.Level)
+                                craftable = "target-craftable";
+                        }
+                        else
+                            craftable = "craftable";
                     <div class="col-4">
                         <div class="item-container">
                             <div class="item-header">
-                                <h4>@item.Name</h4>
+                                <h3>@item.Name</h3>
                                 <img src="@item.ImageUrl" class="item-image" />
+                                <br />
+                                <span class="@craftable">Level: @item.Level</span>
                             </div>
                             <ul>
                                 @{
@@ -430,11 +509,22 @@
             {
                 @if (item.SubCategory == "Dragon")
                 {
+                        string craftable;
+                        if (Model.Skill.Level < item.Level)
+                        {
+                            craftable = "not-craftable";
+                            if (Model.Skill.TargetLevel >= item.Level)
+                                craftable = "target-craftable";
+                        }
+                        else
+                            craftable = "craftable";
                     <div class="col-4">
                         <div class="item-container">
                             <div class="item-header">
-                                <h4>@item.Name</h4>
+                                <h3>@item.Name</h3>
                                 <img src="@item.ImageUrl" class="item-image" />
+                                <br />
+                                <span class="@craftable">Level: @item.Level</span>
                             </div>
                             <ul>
                                 @{
