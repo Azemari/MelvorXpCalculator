@@ -7,8 +7,10 @@
 
 <div class="container">
     <div class="row">
-        <img class="skill-icon mr-2" src="@Model.Skill.ImageUrl" alt="@Model.Skill.Name Icon " />
-        <h1>@Model.Skill.Name</h1>
+        <div class="col-12 float-left">
+            <img class="skill-icon mr-2 float-left  position-relative" src="@Model.Skill.ImageUrl" alt="@Model.Skill.Name Icon " />
+            <h1 class="float-left position-relative">@Model.Skill.Name</h1>
+        </div>
     </div>
     <form asp-action="Smithing">
         <div class="row">
