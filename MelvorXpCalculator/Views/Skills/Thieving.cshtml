@@ -1,5 +1,5 @@
 ﻿@model SkillViewModel
-@{ ViewData["Title"] = "Cooking"; }
+@{ ViewData["Title"] = "Thieving"; }
 
 @Html.HiddenFor(m => m.ModifierBonus)
 @Html.HiddenFor(m => m.Skill.Xp, new { id = "skillXp" })
@@ -14,17 +14,8 @@
         <div class="row">
             <div class="col-4">
                 <h2>Upgrades</h2>
-                <div class="form-group">
-                    <label for="CookingGloves">
-                        <img class="skill-icon mr-2" alt="Cooking Gloves" src="~/Images/Cooking_Gloves.svg" />
-                        Cooking Gloves
-                    </label>
-                    <input type="checkbox" asp-for="Skill.Gloves" id="CookingGloves" onchange="UpdateGlobalModifier(this)">
-                    <br />
-                    <span>Burn nothing when worn, until depleted</span>
-                    <input id="Modifier" type="hidden" asp-for="ModifierBonus" />
-                    <p class="mt-4" id="modifierDisplay">@Model.ModifierBonus% Skill XP Modifier</p>
-                </div>
+                <input id="Modifier" type="hidden" asp-for="ModifierBonus" />
+                <p class="mt-4" id="modifierDisplay">@Model.ModifierBonus% Skill XP Modifier</p>
             </div>
             <div class="col-4">
                 <h2>Level</h2>
@@ -46,6 +37,6 @@
         </div>
     </form>
     <div class="row text-center justify-content-center">
-    <h2>Coming Soon</h2>
+        <h2>Coming Soon</h2>
     </div>
 </div>
